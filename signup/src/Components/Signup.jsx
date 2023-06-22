@@ -1,20 +1,39 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { userContext } from '../Context/userContext'
 const Signup = () => {
-  const { getValue, getEmail, getPassword, email, password, info} = useContext(userContext)
+  const { signUp, setPassword, setEmail, email, password, info} = useContext(userContext)
+  const [blur, setBlur] = useState(false)
+   const navigate = useNavigate()
+  async function handleSignup (e) {
+    try {
+      e.preventDefault(),
+      await signUp(email, password)
+      navigate('/login')
+      
+    } catch (error) {
+      alert(error)
+      
+    }
+  }
  
   return (
-    <div className='text-slate-500 text-center items-center justify-items-center'>
-        <form className='flex flex-col  items-center justify-items-center'>
-            <label>UserName</label>
-            <input onChange={getEmail} value={email} type='text' placeholder="input here "  />
+    <div className='w-[100vw] h-[100vh] flex-col flex  items-center justify-center bg-slate-500'>
+      <p className='text-4xl font-extrabold mb-4'>QUIZ APP</p>
+      <p className='text-slate-200 mb-4 font-bold'>Register Account</p>
+    <div className='text-slate-200 flex  items-center justify-center'>
+        <form className='flex flex-col gap-9'>
+            <label>Gmail</label>
+            <input onChange={((e) => setEmail(e.target.value))} value={email} type='text' placeholder="input here " className=' text-slate-900 border-black border-2 p-[5px] rounded '  />
             <label>Password</label>
-            <input onChange={getPassword} value={password} type='text' placeholder="input here " className='b-4 b-slate-500' />
-        <button onClick={getValue}>Sign up</button>
-      
+            <input onChange={((e) => setPassword(e.target.value))}  value={password} type='text' placeholder="input here " className=' text-slate-900  border-black border-2 p-[5px] rounded' />
+        <button onClick={handleSignup} className=' text-white bg-slate-900 rounded p-[10px]'>Sign up</button>
+        <p>already registered?  <Link to='/login' className='text-blue-900 cursor-pointer'>Log in</Link></p>
         </form>
+        
     
+    </div>
     </div>
   )
 }

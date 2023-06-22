@@ -1,59 +1,48 @@
 import { createContext, useState } from "react";
+import { app } from "./Firebase";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 
 export const userContext = createContext();
 
 export const UserProvider = (props) => {
+  // Initialize Firebase Authentication and get a reference to the service
+  const auth = getAuth(app);
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [info, setInfo] = useState([]);
-  const [logpassword, seLogtPassword] = useState("");
+  const [logpassword, setLogPassword] = useState("");
   const [logemail, setLogEmail] = useState("");
   const [loginfo, setLogInfo] = useState([]);
 
-
-  const getEmail = (e) => {
-    setEmail(e.target.value);
+  const signUp = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const getPassword = (e) => {
-    setPassword(e.target.value);
+  const login = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const loginEmail = (e) => {
-    setLogEmail(e.target.value);
-  };
-
-  const loginPassword = (e) => {
-    seLogtPassword(e.target.value);
-  };
-
-  const getValue = (e) => {
-    e.preventDefault();
-    setInfo([
-      ...info,
-      {
-        email: email,
-        password: password,
-      },
-    ]);
-  };
-  {logemail === email && logpassword === password ? <p>welcome </p> : <p>not present</p>}
-  const getLogValue = (e) => {
-
-    e.preventDefault();
-    if(logemail === email  && logpassword === password) 
-    {
-     
-        console.log('welcome')
-    } else{
-     
-        console.log(' not welcome')
-    }
-  };
 
   return (
     <userContext.Provider
-      value={{getLogValue, logemail, logpassword, loginPassword, loginEmail, getValue, getEmail, getPassword, password, email, info }}
+      value={{
+        login,
+        setLogPassword,
+        setLogEmail,
+        logemail,
+        logpassword,
+        
+        signUp,
+        setPassword,
+        setEmail,
+        password,
+        email,
+        info,
+      }}
     >
       {props.children}{" "}
     </userContext.Provider>
