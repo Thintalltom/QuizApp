@@ -1,21 +1,23 @@
 import React from 'react'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { userContext } from '../Context/userContext'
 
 const Login = () => {
-  const { logemail, logpassword, login, setLogPassword, setLogEmail } = useContext(userContext)
+  const {  login } = useContext(userContext)
   const navigate = useNavigate()
+    
+  const [logpassword, setLogPassword] = useState("");
+  const [logemail, setLogEmail] = useState("");
 
   async function handleLogin (e) {
     try {
       e.preventDefault(),
       await login(logemail, logpassword)
-      if(login) 
-      {
+    
         navigate('/quiz')
-      
-      }
+    
+        
       
     } catch (error) {
       alert(error)
