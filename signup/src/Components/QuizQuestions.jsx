@@ -1,6 +1,6 @@
 export const questions = [
   {
-    question: "Whats the name of the dev",
+    question: "Whats the name of the dev ?",
 
     optionA: "Tomide",
     optionB: "Tristen",
@@ -8,12 +8,12 @@ export const questions = [
     answer: "A",
   },
   {
-    question: "Whats the name of the Tomide",
+    question: "Whats is the most popular JavaScript Framework? ",
 
-    optionA: "Tomide",
-    optionB: "Tristen",
-    optionC: "Tope",
-    answer: "A",
+    optionA: "Svelte",
+    optionB: "Vue",
+    optionC: "React",
+    answer: "C",
   },
   {
     question: "Whats the name of the tiwa",
