@@ -13,7 +13,7 @@ export const userContext = createContext();
 export const UserProvider = (props) => {
   // Initialize Firebase Authentication and get a reference to the service
   const auth = getAuth(app);
-
+  const [score, setScore] = useState(0);
   const [user, setUser] = useState({});
 
   const signUp = (email, password) => {
@@ -46,7 +46,7 @@ export const UserProvider = (props) => {
         login,
         user,
         signUp,
-        logOut
+        logOut, score, setScore
         
       }}
     >
@@ -55,6 +55,3 @@ export const UserProvider = (props) => {
   );
 };
 
-export function useUserAuth() {
-  return useContext(userContext)
-}
