@@ -16,35 +16,28 @@ export const questions = [
     answer: "C",
   },
   {
-    question: "Whats the name of the tiwa",
+    question: "What is the most poular programming language?",
 
-    optionA: "Tomide",
-    optionB: "Tristen",
-    optionC: "Tope",
-    answer: "A",
+    optionA: "Python",
+    optionB: "Javascript",
+    optionC: "C++",
+    answer: "B",
   },
   {
-    question: "Whats the name of the peju",
+    question: "What is the full meaning of CSS?",
 
-    optionA: "Tomide",
-    optionB: "Tristen",
-    optionC: "Tope",
-    answer: "A",
+    optionA: "Cascading style shit",
+    optionB: "Cascading style sheet",
+    optionC: "Cascading style shete",
+    answer: "B",
   },
   {
-    question: "Whats the name of the ranti",
+    question: "What is the full meaning of HTML?",
 
-    optionA: "Tomide",
-    optionB: "Tristen",
-    optionC: "Tope",
+    optionA: "Hypertext Markup Language",
+    optionB: "Hypertext Markeup Language",
+    optionC: "Hypertext Markdown Language",
     answer: "A",
   },
-  {
-    question: "Whats the name of the Adeyanju",
 
-    optionA: "Tomide",
-    optionB: "Tristen",
-    optionC: "Tope",
-    answer: "A",
-  },
 ];

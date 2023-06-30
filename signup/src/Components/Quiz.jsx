@@ -53,7 +53,7 @@ const Quiz = () => {
             onClick={() => action(1)}
             className={`${
               tabstate === 1
-                ? "bg-white p-[10px] w-[30vw] rounded text-white  bg-red-900"
+                ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
                 : "bg-white p-[10px] w-[30vw] rounded "
             }`}
           >
@@ -65,7 +65,7 @@ const Quiz = () => {
             onClick={() => action(2)}
             className={`${
               tabstate ===  2
-                ? "bg-white p-[10px] w-[30vw] rounded text-white  bg-red-900"
+                ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
                 : "bg-white p-[10px] w-[30vw] rounded "
             }`}
           >
@@ -77,7 +77,7 @@ const Quiz = () => {
             onClick={() => action(3)}
             className={`${
               tabstate === 3
-                ? "bg-white p-[10px] w-[30vw] rounded text-white  bg-red-900"
+                ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
                 : "bg-white p-[10px] w-[30vw] rounded "
             }`}
           >

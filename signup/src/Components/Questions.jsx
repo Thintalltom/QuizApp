@@ -27,7 +27,7 @@ const Questions = () => {
         Score: {score} / {questions.length}
       </p>
       {score > 3 ? (
-        <p className="text-blue-500 font-medium text-xl">You did well</p>
+        <p className="text-blue-900 font-medium text-xl">You did well</p>
       ) : (
         <p className="text-red-700 font-medium text-xl">You can do better</p>
       )}
