@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { userContext } from "../Context/userContext";
 import { useNavigate } from "react-router-dom";
-import { questions } from "./QuizQuestions";
+
 
 const Quiz = () => {
-  const { user, logOut, score, setScore } = useContext(userContext);
-  const [current, setCurrent] = useState(0);
+  const { user, logOut, score, setScore, current, setCurrent, questions } = useContext(userContext);
+
   const [option, setOption] = useState("");
 
   const navigate = useNavigate();
@@ -39,12 +39,16 @@ const Quiz = () => {
     setTabstate(index);
   };
 
+ 
+
+
+
   return (
-    <div className="text-center  items-center justify-center bg-slate-300 flex flex-col h-[100vh]">
-      <p>email: {user && user.email}</p>
-      <div className="text-center p-4 items-center justify-center flex flex-col bg-slate-300 w-[50vw] h-[50vh]">
-        <p className="mb-4 font-medium ">QUIZ QUESTIONS</p>
-        <div className="bg-white p-[20px] w-[50vw]">
+    <div className="text-center  items-center justify-center bg-slate-400 flex flex-col h-[100vh]">
+     
+      <div className="text-center p-4 items-center justify-center flex flex-col  w-[50vw] h-[50vh]">
+        <p className="mb-[20px] font-medium text-xl">QUIZ QUESTIONS</p>
+        <div className="bg-slate-400  p-[20px] w-[50vw] text-xl">
           {questions[current].question}
         </div>
 
@@ -54,7 +58,7 @@ const Quiz = () => {
             className={`${
               tabstate === 1
                 ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
-                : "bg-white p-[10px] w-[30vw] rounded "
+                : "bg-white p-[10px] w-[30vw] rounded cursor-pointer hover:bg-slate-700"
             }`}
           >
             <button onClick={() => setOption("A")}>
@@ -66,7 +70,7 @@ const Quiz = () => {
             className={`${
               tabstate ===  2
                 ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
-                : "bg-white p-[10px] w-[30vw] rounded "
+                : "bg-white p-[10px] w-[30vw] cursor-pointer rounded hover:bg-slate-700"
             }`}
           >
             <button onClick={() => setOption("B")}>
@@ -78,17 +82,30 @@ const Quiz = () => {
             className={`${
               tabstate === 3
                 ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
-                : "bg-white p-[10px] w-[30vw] rounded "
+                : "bg-white p-[10px] w-[30vw] rounded cursor-pointer hover:bg-slate-700"
             }`}
           >
             <button onClick={() => setOption("C")}>
               {questions[current].optionC}
             </button>
           </div>
+
+          <div
+            onClick={() => action(4)}
+            className={`${
+              tabstate === 4
+                ? " p-[10px] w-[30vw] rounded text-white  bg-red-900"
+                : "bg-white p-[10px] w-[30vw] rounded cursor-pointer hover:bg-slate-700"
+            }`}
+          >
+            <button onClick={() => setOption("D")}>
+              {questions[current].optionD}
+            </button>
+          </div>
         </div>
       </div>
 
-      {current == questions.length - 1 ? (
+      {current === questions.length - 1 ? (
         <button
           className="p-4 bg-slate-500 text-white  rounded "
           onClick={finishQuiz}

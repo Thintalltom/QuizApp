@@ -1,43 +1,51 @@
 export const questions = [
   {
-    question: "Whats the name of the dev ?",
+    question: "She paid him a ______________ when he was dressed up for a party",
 
-    optionA: "Tomide",
-    optionB: "Tristen",
-    optionC: "Tope",
-    answer: "A",
+    optionA: "Afront",
+    optionB: "Fine",
+    optionC: "Complaint",
+    optionD: "Compliment",
+    answer: "D",
   },
   {
-    question: "Whats is the most popular JavaScript Framework? ",
+    question: "What is the prefix that can be added to advantage to make the word mean opposite  ",
 
-    optionA: "Svelte",
-    optionB: "Vue",
-    optionC: "React",
+    optionA: "Pre",
+    optionB: "An",
+    optionC: "Dis",
+    optionD: "Anti",
     answer: "C",
   },
   {
-    question: "What is the most poular programming language?",
+    question: "A journey of a relatively short duration is called _________ ?",
 
-    optionA: "Python",
-    optionB: "Javascript",
-    optionC: "C++",
-    answer: "B",
+    
+    optionA: "tardy",
+    optionB: "Late",
+    optionC: "Peaceful",
+    optionD: "Punctual",
+    answer: "C",
   },
   {
-    question: "What is the full meaning of CSS?",
+    question: "My father inlaw's new wife is my ________________? ",
 
-    optionA: "Cascading style shit",
-    optionB: "Cascading style sheet",
-    optionC: "Cascading style shete",
-    answer: "B",
+  
+    optionA: "aunt",
+    optionB: "Grandmother",
+    optionC: "Step Mother",
+    optionD: "Mother",
+    answer: "C",
   },
   {
-    question: "What is the full meaning of HTML?",
+    question: "The audience gave the brialliant pianist a ___________________ oviation",
 
-    optionA: "Hypertext Markup Language",
-    optionB: "Hypertext Markeup Language",
-    optionC: "Hypertext Markdown Language",
-    answer: "A",
+ 
+    optionA: "Sitting",
+    optionB: "Standing",
+    optionC: "Sound",
+    optionD: "Surprising",
+    answer: "B",
   },
 
 ];

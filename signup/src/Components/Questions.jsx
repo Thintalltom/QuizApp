@@ -4,9 +4,10 @@ import { questions } from "./QuizQuestions";
 import { Link, useNavigate } from "react-router-dom";
 
 const Questions = () => {
-  const { score, setScore, logOut } = useContext(userContext);
+  const { score, setScore, logOut, setCurrent } = useContext(userContext);
   const Retake = () => {
     setScore(0);
+    setCurrent(0)
   };
   const navigate =useNavigate()
   const handleSignout = async () => {
@@ -31,7 +32,7 @@ const Questions = () => {
       ) : (
         <p className="text-red-700 font-medium text-xl">You can do better</p>
       )}
-      <Link to="/quiz">
+      <Link to="/inter">
         <button
           onClick={Retake}
           className="bg-slate-200 p-[10px] rounded  hover:bg-slate-700"

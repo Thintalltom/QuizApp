@@ -8,13 +8,17 @@ import {
   onAuthStateChanged
 } from "firebase/auth";
 
+import { questions } from "../Components/QuizQuestions";
 export const userContext = createContext();
+
 
 export const UserProvider = (props) => {
   // Initialize Firebase Authentication and get a reference to the service
   const auth = getAuth(app);
   const [score, setScore] = useState(0);
   const [user, setUser] = useState({});
+  const [current, setCurrent] = useState((0));
+  
 
   const signUp = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password);
@@ -31,7 +35,7 @@ export const UserProvider = (props) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser)
-        console.log(user)
+      
      });
       return () => {
         unsubscribe();
@@ -46,8 +50,7 @@ export const UserProvider = (props) => {
         login,
         user,
         signUp,
-        logOut, score, setScore
-        
+        logOut, score, setScore, current,setCurrent, questions
       }}
     >
       {props.children}{" "}
