@@ -10,7 +10,8 @@ import QuestionInter from "./Components/QuestionInter";
 import "./App.css";
 import { UserProvider } from "./Context/userContext";
 import ProtectedRoute from "./Components/ProtectedRoute";
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
            <Route path='/score' element={<Questions />} />
           </Routes>
         </Router>
+        <ToastContainer 
+     position='top-center'
+     autoClose={2000}
+     hideProgressBar={true}
+     />
       </div>
     </UserProvider>
   );
