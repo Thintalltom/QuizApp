@@ -14,17 +14,14 @@ const Signup = () => {
     e.preventDefault();
     await signUp(email, password)
       .then(() => {
-        //if error is equal to all this params display error
-        if (error == "auth/invalid-email" || "auth/email-already-in-use") {
-          toast.error(error);
-        } else if (!error) {
-          //if no error navigate to login
-          navigate("/login");
-        }
+       navigate('/login')
+       toast.success('user created')
       })
       .catch((err) => {
-        return err;
+        console.log(err);
+        toast.error(err.message)
       });
+    //if error is equal to all this params display error
   };
 
   return (
@@ -39,7 +36,7 @@ const Signup = () => {
             value={email}
             type="text"
             placeholder="input here "
-            className=' xs:w-[80vw] sm:w-[50vw] text-slate-900 border-black border-2 p-[5px] rounded '
+            className=" xs:w-[80vw] sm:w-[50vw] text-slate-900 border-black border-2 p-[5px] rounded "
           />
           <label>Password</label>
           <input
@@ -47,11 +44,11 @@ const Signup = () => {
             value={password}
             type="text"
             placeholder="input here "
-            className=' xs:w-[80vw] sm:w-[50vw] text-slate-900  border-black border-2 p-[5px] rounded'
+            className=" xs:w-[80vw] sm:w-[50vw] text-slate-900  border-black border-2 p-[5px] rounded"
           />
           <button
             type="submit"
-            className=' text-white bg-slate-900 rounded sm:w-[50vw] xs:w-[80vw] p-[10px]'
+            className=" text-white bg-slate-900 rounded sm:w-[50vw] xs:w-[80vw] p-[10px]"
           >
             Sign up
           </button>

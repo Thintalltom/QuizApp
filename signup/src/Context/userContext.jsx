@@ -17,19 +17,20 @@ export const UserProvider = (props) => {
   const [user, setUser] = useState({});
   const [current, setCurrent] = useState(0);
   const [error, setError] = useState({});
+  const [logError, setLogError] = useState({});
 
-  const signUp = async (email, password) => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      //must catch the error here else wont be able to catch it at the main page
-    } catch (error) {
-      setError(error.message);
-    }
+  function signUp(email, password){
+      //return the function
+    return createUserWithEmailAndPassword(auth, email, password);
+    
+}
+  
+
+  const login = (email, password) =>  {
+  //return the function
+     return signInWithEmailAndPassword(auth, email, password);
+ 
   };
-
-  function login(email, password) {
-    signInWithEmailAndPassword(auth, email, password);
-  }
 
   function logOut() {
     return signOut(auth);
@@ -47,6 +48,7 @@ export const UserProvider = (props) => {
   return (
     <userContext.Provider
       value={{
+        logError,
         error,
         login,
         user,
@@ -63,3 +65,5 @@ export const UserProvider = (props) => {
     </userContext.Provider>
   );
 };
+
+
