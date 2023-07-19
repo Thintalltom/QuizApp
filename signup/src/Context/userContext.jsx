@@ -19,17 +19,14 @@ export const UserProvider = (props) => {
   const [error, setError] = useState({});
   const [logError, setLogError] = useState({});
 
-  function signUp(email, password){
-      //return the function
+  function signUp(email, password) {
+    //return the function
     return createUserWithEmailAndPassword(auth, email, password);
-    
-}
-  
+  }
 
-  const login = (email, password) =>  {
-  //return the function
-     return signInWithEmailAndPassword(auth, email, password);
- 
+  const login = (email, password) => {
+    //return the function
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   function logOut() {
@@ -65,5 +62,3 @@ export const UserProvider = (props) => {
     </userContext.Provider>
   );
 };
-
-

@@ -32,7 +32,7 @@ const Questions = () => {
       ) : (
         <p className="text-red-700 font-medium text-xl">You can do better</p>
       )}
-      <Link to="/inter">
+      <Link to="/quiz">
         <button
           onClick={Retake}
           className="bg-slate-200 p-[10px] rounded  hover:bg-slate-700"

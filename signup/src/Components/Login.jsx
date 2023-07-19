@@ -14,7 +14,7 @@ const handleLogin = async (e) => {
     e.preventDefault();
   try {
     await login(logemail, logpassword)
-    navigate("/inter");
+    navigate("/quiz");
     toast.success('user logged in')
   } catch (err) {
     console.log(err);
